@@ -27,6 +27,7 @@ GNL = $(GNL_DIR)/get_next_line.a
 SRCS = check_chars_in_map.c \
 	check_input.c \
 	check_map.c \
+	checkpath.c \
 	main.c \
 	map.c \
 

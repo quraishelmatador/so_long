@@ -25,8 +25,12 @@ int	main(void)
 	
 	    map = convert_to_matrix("map.ber");
 	    player = find_player(map);
-	    printf("Player position: x = %d, y = %d\n", player.x, player.y);
-	    printf("WALLS: %i\n", check_walls(map));
+	    flood_fill(map, &player, get_rows(map), get_columns(map));
+	    // print map
+	    for (int i = 0; map[i]; i++)
+	    {
+	        printf("%s\n", map[i]);
+	    }
 	    free_matrix(map);
 	    return (0);
 }

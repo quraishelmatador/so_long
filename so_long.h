@@ -8,11 +8,23 @@
 # include <stdio.h>
 
 
-typedef struct t_point
+typedef struct s_point
 {
 	int	x;
 	int	y;
 }	t_point;
+
+typedef struct s_point_list
+{
+	t_point			*point;
+	struct s_point_list	*next;
+}	t_point_list;
+
+typedef struct t_queue
+{
+	t_point_list	*front;
+	t_point_list	*rear;
+}	t_queue;
 
 
 
@@ -43,5 +55,10 @@ int	checkwalls_first_last_rows(char **map);
 int	checkwalls_left_right_columns(char **map);
 int	check_walls(char **map);
 
+// checkpath.c
+void	enqueue(t_queue *q, t_point *point);
+t_point	*dequeue(t_queue *q);
+t_point	*new_point(int x, int y);
+int	flood_fill(char **map, t_point *player, int rows, int columns);
 
 #endif
